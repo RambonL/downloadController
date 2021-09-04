@@ -1,26 +1,22 @@
 import requests
+import urllib
+import requests
+import downloader
 
-url = ''
 
 def checkUrl(url):
-
     data = '"Content-Type": "value"'
-
     response = requests.get(url, data)
-    #print(response.status_code)
-    #print(response.headers['Content-Type'])
-
     rHeaders = response.headers['Content-Type']
 
     tmpArray = rHeaders.split("/")
-    #print(tmpArray[0])
 
     if tmpArray[0] == "application":
         print(__name__ + " : " + tmpArray[0]) 
+        downloader.startDownload(url)
         return True
     else:
         print(__name__ + " : Not Application")
         return False
 
-
-print(__name__)
+#checkUrl('https://www.python.org/ftp/python/3.9.7/python-3.9.7-amd64.exe')
