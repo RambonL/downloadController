@@ -1,4 +1,5 @@
 import urllib.request
+import filesorter
 
 url = "https://www.python.org/ftp/python/3.9.7/python-3.9.7-amd64.exe"
 
@@ -15,3 +16,4 @@ def startDownload(url):
 
     urllib.request.urlretrieve(url, 'D:/Downloads/' + tmpArray[i], reporthook=Download_Progress)
     print ("Finished")
+    filesorter.getNewFile(tmpArray[i])
