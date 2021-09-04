@@ -2,6 +2,7 @@ import keyboard
 import win32clipboard as cb
 import time
 import re
+import urlChecker
 
 regex = '(http)(.)*'
 
@@ -13,7 +14,8 @@ while True:
         cb.CloseClipboard()
         if(re.search(regex, data)):
             print(data)
-            print('True')
+            #print('True')
+            urlChecker.checkUrl(data)
         else:
             print(data)
             print('False')
